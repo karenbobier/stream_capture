@@ -43,7 +43,7 @@ mkdir /scratch/keb27269/stream_cap/demultiplex_$FNAME
 process_radtags -P -1 /scratch/keb27269/stream_cap/3rad_data/$FNAME.1.fq.gz \
 -2 /scratch/keb27269/stream_cap/3rad_data/$FNAME.2.fq.gz \
 -b /scratch/keb27269/stream_cap/$FNAME\_barcodes.txt -q -c --filter_illumina -r -t 140 --inline_inline \
---renz_1 xbaI --renz_2 ecoRI -o /scratch/keb27269/stream_cap/demultiplex_$FNAME -i gzfastq
+--renz_1 ecoRI --renz_2 nheI -o /scratch/keb27269/stream_cap/demultiplex_$FNAME -i gzfastq
 done
 
 #Create a folder to move all demultiplexed files
