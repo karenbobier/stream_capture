@@ -1,16 +1,20 @@
 #PBS -S /bin/bash
 #PBS -q batch
-#PBS -N declone_Llanero
-#PBS -l nodes=1:ppn=12:tcgnode
+#PBS -N declone_3rad
+#PBS -l nodes=1:ppn=12
 #PBS -l walltime=48:00:00
 #PBS -l mem=125gb
-#PBS -M njbayonav@gmail.com
+#PBS -M keb27269@uga.edu
 #PBS -m abe
+#PBS -o $HOME/demultiplex3.out.$PBS_JOBID
+#PBS -e $HOME/demultiplex3.err.$PBS_JOBID
 
-cd $PBS_O_WORKDIR
+basedir="/home/keb27269/projects/stream_capture/"
+#mkdir $basedir
+cd $basedir
 
 #loading the software in the cluster
-module load stacks/2.0beta7
+module load Stacks/2.3e-foss-2016b
 
 #Running the declone_filter pipeline
 mkdir /lustre1/njbayona/C_intermedius_3RAD/declone_all
