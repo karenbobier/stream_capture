@@ -9,7 +9,7 @@
 #PBS -o $HOME/denovo_n.out.$PBS_JOBID
 #PBS -e $HOME/denovo_n.err.$PBS_JOBID
 
-basedir="/scratch/keb27269/EHS_Class/"
+basedir="/scratch/keb27269/stream_cap/"
 #mkdir $basedir
 cd $basedir
 
@@ -29,12 +29,46 @@ n="1
 10
 "
 
+#for Notropis_lutipinnis
 for FNAME  in $n
 do
-mkdir /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_$FNAME
-denovo_map.pl --samples /scratch/keb27269/I_scapularis_3RAD/process_output_final/ \
---popmap /scratch/keb27269/EHS_Class/Iscap_D2_populationmap.txt \
--o /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_$FNAME \
+mkdir /scratch/keb27269/stream_cap/N_lutipinnis/denovo_output/denovo_n_$FNAME
+denovo_map.pl --samples /scratch/keb27269/stream_cap/declone_all/N_lutipinnis/ \
+--popmap /scratch/keb27269/stream_cap/N_lutipinnis/N_lutipinnis_populationmap.txt \
+-o /scratch/keb27269/stream_cap/N_lutipinnis/denovo_output/denovo_n_$FNAME \
+--paired -m 3 -n $FNAME -M 4 -t -T 12 \
+-X "populations: -r 0.8 --fstats --fasta_strict --vcf --genepop"
+done
+
+#for Nocomis_leptocephalus
+for FNAME  in $n
+do
+mkdir /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_n_$FNAME
+denovo_map.pl --samples /scratch/keb27269/stream_cap/declone_all/N_leptocephalus/ \
+--popmap /scratch/keb27269/stream_cap/N_leptocephalus/N_leptocephalus_populationmap.txt \
+-o /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_n_$FNAME \
+--paired -m 3 -n $FNAME -M 4 -t -T 12 \
+-X "populations: -r 0.8 --fstats --fasta_strict --vcf --genepop"
+done
+
+#for Luxilus_zonistius
+for FNAME  in $n
+do
+mkdir /scratch/keb27269/stream_cap/L_zonistius/denovo_output/denovo_n_$FNAME
+denovo_map.pl --samples /scratch/keb27269/stream_cap/declone_all/L_zonistius/ \
+--popmap /scratch/keb27269/stream_cap/L_zonistius/L_zonistius_populationmap.txt \
+-o /scratch/keb27269/stream_cap/L_zonistius/denovo_output/denovo_n_$FNAME \
+--paired -m 3 -n $FNAME -M 4 -t -T 12 \
+-X "populations: -r 0.8 --fstats --fasta_strict --vcf --genepop"
+done
+
+#for Percina_nigrofasciata
+for FNAME  in $n
+do
+mkdir /scratch/keb27269/stream_cap/P_nigrofasciata/denovo_output/denovo_n_$FNAME
+denovo_map.pl --samples /scratch/keb27269/stream_cap/declone_all/P_nigrofasciata/ \
+--popmap /scratch/keb27269/stream_cap/P_nigrofasciata/P_nigrofasciata_populationmap.txt \
+-o /scratch/keb27269/stream_cap/P_nigrofasciata/denovo_output/denovo_n_$FNAME \
 --paired -m 3 -n $FNAME -M 4 -t -T 12 \
 -X "populations: -r 0.8 --fstats --fasta_strict --vcf --genepop"
 done
