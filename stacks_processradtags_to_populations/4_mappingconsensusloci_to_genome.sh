@@ -13,7 +13,7 @@ basedir="/scratch/keb27269/EHS_Class/"
 #mkdir $basedir
 cd $basedir
 
-module load Stacks/2.3b-foss-2016b
+module load Stacks/2.3e-foss-2016b
 module load BWA/0.7.17-foss-2016b
 module load Python/3.5.2-foss-2016b
 
