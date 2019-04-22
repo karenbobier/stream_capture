@@ -11,7 +11,7 @@
 
 #this script is to figure out the best value of M, # of stacks for an individual
 
-basedir="/scratch/keb27269/EHS_Class/"
+basedir="/scratch/keb27269/stream_cap/"
 #mkdir $basedir
 cd $basedir
 
@@ -33,14 +33,48 @@ M="1
 10
 "
 
+#for Notropis_lutipinnis
 for FNAME  in $M
 do
-mkdir /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_M_$FNAME
-denovo_map.pl --samples /scratch/keb27269/I_scapularis_3RAD/process_output_final/ \
---popmap /scratch/keb27269/EHS_Class/Iscap_D2_populationmap.txt \
--o /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_M_$FNAME \
+mkdir /scratch/keb27269/stream_cap/N_lutipinnis/denovo_output/denovo_M_$FNAME
+denovo_map.pl --samples /scratch/keb27269/stream_cap/declone_all/N_lutipinnis/ \
+--popmap /scratch/keb27269/stream_cap/N_lutipinnis/N_lutipinnis_populationmap.txt \
+-o /scratch/keb27269/stream_cap/N_lutipinnis/denovo_output/denovo_M_$FNAME \
 --paired -m 3 -n 0 -M $FNAME -t -T 12 \
 -X "populations: -r 0.8 --fstats --fasta_strict --vcf --genepop"
 done
 #pop map file with two columns 1 sample name must match seq file name, and pop
 # -r finds loci present in atlest 80% of indvs
+
+#for Nocomis_leptocephalus
+for FNAME  in $M
+do
+mkdir /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_M_$FNAME
+denovo_map.pl --samples /scratch/keb27269/stream_cap/declone_all/N_leptocephalus/ \
+--popmap /scratch/keb27269/stream_cap/N_leptocephalus/N_leptocephalus_populationmap.txt \
+-o /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_M_$FNAME \
+--paired -m 3 -n 0 -M $FNAME -t -T 12 \
+-X "populations: -r 0.8 --fstats --fasta_strict --vcf --genepop"
+done
+
+#for Luxilus_zonistius
+for FNAME  in $M
+do
+mkdir /scratch/keb27269/stream_cap/L_zonistius/denovo_output/denovo_M_$FNAME
+denovo_map.pl --samples /scratch/keb27269/stream_cap/declone_all/L_zonistius/ \
+--popmap /scratch/keb27269/stream_cap/L_zonistius/L_zonistius_populationmap.txt \
+-o /scratch/keb27269/stream_cap/L_zonistius/denovo_output/denovo_M_$FNAME \
+--paired -m 3 -n 0 -M $FNAME -t -T 12 \
+-X "populations: -r 0.8 --fstats --fasta_strict --vcf --genepop"
+done
+
+#for Percina_nigrofasciata
+for FNAME  in $M
+do
+mkdir /scratch/keb27269/stream_cap/P_nigrofasciata/denovo_output/denovo_M_$FNAME
+denovo_map.pl --samples /scratch/keb27269/stream_cap/declone_all/P_nigrofasciata/ \
+--popmap /scratch/keb27269/stream_cap/P_nigrofasciata/P_nigrofasciata_populationmap.txt \
+-o /scratch/keb27269/stream_cap/P_nigrofasciata/denovo_output/denovo_M_$FNAME \
+--paired -m 3 -n 0 -M $FNAME -t -T 12 \
+-X "populations: -r 0.8 --fstats --fasta_strict --vcf --genepop"
+done
