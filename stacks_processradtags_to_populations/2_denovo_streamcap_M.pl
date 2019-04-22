@@ -3,7 +3,7 @@
 #PBS -l nodes=1:ppn=12
 #PBS -l mem=400gb
 #PBS -N denovo_test_M_Is
-#PBS -l walltime=6:00:00:00
+#PBS -l walltime=1:00:00:00
 #PBS -M keb27269@uga.edu
 #PBS -m abe
 #PBS -o $HOME/denovo_M.out.$PBS_JOBID
