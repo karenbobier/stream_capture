@@ -78,3 +78,7 @@ denovo_map.pl --samples /scratch/keb27269/stream_cap/declone_all/P_nigrofasciata
 --paired -m 3 -n 0 -M $FNAME -t -T 12 \
 -X "populations: -r 0.8 --fstats --fasta_strict --vcf --genepop"
 done
+
+
+#use this code in folder for each M to get number of polymorphic loci
+#cat populations.sumstats.tsv | grep -v "#" | cut -f 1 | sort | uniq | wc -l
