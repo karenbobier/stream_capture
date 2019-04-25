@@ -15,7 +15,7 @@ basedir="/scratch/keb27269/stream_cap/"
 #mkdir $basedir
 cd $basedir
 
-module load Stacks/2.3-foss-2016b-p1
+module load Stacks/2.3e-foss-2016b
 module load Perl/5.26.0-GCCcore-6.4.0
 
 #mkdir  /scratch/keb27269/I_scapularis_3RAD/denovo_output
