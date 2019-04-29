@@ -1,15 +1,15 @@
 #PBS -S /bin/bash
 #PBS -q highmem_q
-#PBS -N refmap_I_scapularis
+#PBS -N refmap_streamcap_pilot
 #PBS -l nodes=1:ppn=8
-#PBS -l walltime=02:00:00
+#PBS -l walltime=2:00:00:00
 #PBS -l mem=200gb
 #PBS -M keb27269@uga.edu
 #PBS -m abe
 #PBS -o $HOME/refmap.out.$PBS_JOBID
 #PBS -e $HOME/refmap.err.$PBS_JOBID
 
-basedir="/scratch/keb27269/EHS_Class/"
+basedir="/scratch/keb27269/stream_cap/"
 #mkdir $basedir
 cd $basedir
 
@@ -23,15 +23,40 @@ module load Python/3.5.2-foss-2016b
 #create the directories that are going to be used
 
 #index your reference with burrow wheeler alignment
-time bwa index /scratch/keb27269/EHS_Class/GCF_000208615.1_JCVI_ISG_i3_1.0_genomic.fna
+time bwa index /scratch/keb27269/stream_cap/ref_genomes/Perca_flavens/GCF_004354835.1_PFLA_1.0_genomic.fna
+time bwa index /scratch/keb27269/stream_cap/ref_genomes/Pimephales_promelas/GCA_000700825.1_FHM_SOAPdenovo_genomic.fna
 
+set -ueo pipefail
+SPECIES="N_lutipinnis
+N_leptocephalus
+L_zonistius
+P_nigrofasciata
+"
+
+for i in $SPECIES
+
+do
 #create directories
-mkdir /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_5/reference
-mkdir /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_5/catalog_new
-cp /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_5/* /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_5/catalog_new/
-rm /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_5/catalog_new/catalog.fa.gz
-rm /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_5/catalog_new/catalog.calls
+mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4/reference
+mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4/catalog_new
+cp /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4/* /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4/catalog_new/
+rm /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4/catalog_new/catalog.fa.gz
+rm /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4/catalog_new/catalog.calls
+done
 
 ##create new catalog
-time bwa mem -M /scratch/keb27269/EHS_Class/GCF_000208615.1_JCVI_ISG_i3_1.0_genomic.fna /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_5/catalog.fa.gz | samtools view -b | samtools sort > /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_5/reference/catalog_loci.bam
-stacks-integrate-alignments -P /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_5/ -B /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_5/reference/catalog_loci.bam -O /scratch/keb27269/I_scapularis_3RAD/denovo_output/denovo_n_5/catalog_new/
+#for N_lutipinnis
+time bwa mem -M /scratch/keb27269/stream_cap/ref_genomes/Pimephales_promelas/GCA_000700825.1_FHM_SOAPdenovo_genomic.fna /scratch/keb27269/stream_cap/N_lutipinnis/denovo_output/denovo_n_4/catalog.fa.gz | samtools view -b | samtools sort > /scratch/keb27269/stream_cap/N_lutipinnis/denovo_output/denovo_n_4/reference/catalog_loci.bam
+stacks-integrate-alignments -P /scratch/keb27269/stream_cap/N_lutipinnis/denovo_output/denovo_n_4/ -B /scratch/keb27269/stream_cap/N_lutipinnis/denovo_output/denovo_n_4/reference/catalog_loci.bam -O /scratch/keb27269/stream_cap/N_lutipinnis/denovo_output/denovo_n_4/catalog_new/
+
+#for N_leptocephalus
+time bwa mem -M /scratch/keb27269/stream_cap/ref_genomes/Pimephales_promelas/GCA_000700825.1_FHM_SOAPdenovo_genomic.fna /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_n_4/catalog.fa.gz | samtools view -b | samtools sort > /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_n_4/reference/catalog_loci.bam
+stacks-integrate-alignments -P /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_n_4/ -B /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_n_4/reference/catalog_loci.bam -O /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_n_4/catalog_new/
+
+#for L_zonistius
+time bwa mem -M /scratch/keb27269/stream_cap/ref_genomes/Pimephales_promelas/GCA_000700825.1_FHM_SOAPdenovo_genomic.fna /scratch/keb27269/stream_cap/L_zoinistius/denovo_output/denovo_n_4/catalog.fa.gz | samtools view -b | samtools sort > /scratch/keb27269/stream_cap/L_zoinistius/denovo_output/denovo_n_4/reference/catalog_loci.bam
+stacks-integrate-alignments -P /scratch/keb27269/stream_cap/L_zoinistius/denovo_output/denovo_n_4/ -B /scratch/keb27269/stream_cap/L_zoinistius/denovo_output/denovo_n_4/reference/catalog_loci.bam -O /scratch/keb27269/stream_cap/L_zoinistius/denovo_output/denovo_n_4/catalog_new/
+
+#for P_nigrofasciata
+time bwa mem -M /scratch/keb27269/stream_cap/ref_genomes/Perca_flavens/GCF_004354835.1_PFLA_1.0_genomic.fna /scratch/keb27269/stream_cap/P_nigrofasciata/denovo_output/denovo_n_4/catalog.fa.gz | samtools view -b | samtools sort > /scratch/keb27269/stream_cap/P_nigrofasciata/denovo_output/denovo_n_4/reference/catalog_loci.bam
+stacks-integrate-alignments -P /scratch/keb27269/stream_cap/P_nigrofasciata/denovo_output/denovo_n_4/ -B /scratch/keb27269/stream_cap/P_nigrofasciata/denovo_output/denovo_n_4/reference/catalog_loci.bam -O /scratch/keb27269/stream_cap/P_nigrofasciata/denovo_output/denovo_n_4/catalog_new/
