@@ -40,8 +40,8 @@ do
 mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_reference
 mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new
 cp /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4/* /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/
-rm /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catelog_new/catalog.fa.gz
-rm /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catelog_new/catalog.calls
+rm /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/catalog.fa.gz
+rm /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/catalog.calls
 done
 
 ##create new catalog
