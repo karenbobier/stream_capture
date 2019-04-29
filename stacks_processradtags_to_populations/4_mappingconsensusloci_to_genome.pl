@@ -54,8 +54,8 @@ time bwa mem -M /scratch/keb27269/stream_cap/ref_genomes/Pimephales_promelas/GCA
 stacks-integrate-alignments -P /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_n_4/ -B /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_n_4_reference/catalog_loci.bam -O /scratch/keb27269/stream_cap/N_leptocephalus/denovo_output/denovo_n_4_catalog_new/
 
 #for L_zonistius
-time bwa mem -M /scratch/keb27269/stream_cap/ref_genomes/Pimephales_promelas/GCA_000700825.1_FHM_SOAPdenovo_genomic.fna /scratch/keb27269/stream_cap/L_zoinistius/denovo_output/denovo_n_4/catalog.fa.gz | samtools view -b | samtools sort > /scratch/keb27269/stream_cap/L_zoinistius/denovo_output/denovo_n_4_reference/catalog_loci.bam
-stacks-integrate-alignments -P /scratch/keb27269/stream_cap/L_zoinistius/denovo_output/denovo_n_4/ -B /scratch/keb27269/stream_cap/L_zoinistius/denovo_output/denovo_n_4_reference/catalog_loci.bam -O /scratch/keb27269/stream_cap/L_zoinistius/denovo_output/denovo_n_4_catalog_new/
+time bwa mem -M /scratch/keb27269/stream_cap/ref_genomes/Pimephales_promelas/GCA_000700825.1_FHM_SOAPdenovo_genomic.fna /scratch/keb27269/stream_cap/L_zonistius/denovo_output/denovo_n_4/catalog.fa.gz | samtools view -b | samtools sort > /scratch/keb27269/stream_cap/L_zonistius/denovo_output/denovo_n_4_reference/catalog_loci.bam
+stacks-integrate-alignments -P /scratch/keb27269/stream_cap/L_zonistius/denovo_output/denovo_n_4/ -B /scratch/keb27269/stream_cap/L_zonistius/denovo_output/denovo_n_4_reference/catalog_loci.bam -O /scratch/keb27269/stream_cap/L_zonistius/denovo_output/denovo_n_4_catalog_new/
 
 #for P_nigrofasciata
 time bwa mem -M /scratch/keb27269/stream_cap/ref_genomes/Perca_flavens/GCF_004354835.1_PFLA_1.0_genomic.fna /scratch/keb27269/stream_cap/P_nigrofasciata/denovo_output/denovo_n_4/catalog.fa.gz | samtools view -b | samtools sort > /scratch/keb27269/stream_cap/P_nigrofasciata/denovo_output/denovo_n_4_reference/catalog_loci.bam
