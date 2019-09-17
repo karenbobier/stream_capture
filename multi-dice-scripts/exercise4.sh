@@ -28,8 +28,8 @@ echo "//Number of population samples (demes)
 NPOP0
 NPOP1
 //Samples sizes and samples age
-20
-20
+8
+8
 //Growth rates: negative growth implies population expansion
 0
 0
