@@ -9,7 +9,7 @@
 #PBS -o $HOME/vcf2sfs.out.$PBS_JOBID
 #PBS -e $HOME/vcf2sfs.err.$PBS_JOBID
 
-basedir="/scratch/keb27269/stream_cap/simulations/"
+basedir="/scratch/keb27269/stream_cap/obs_data/"
 #mkdir $basedir
 cd $basedir
 
@@ -44,3 +44,21 @@ cd $basedir/P_nigrofasciata
 pwd
 ./easySFS.py -i populations.snps.vcf -p P_nigrofasciata_populationmap.txt -a --proj 8,8 -o P_nigrofasciata_sfsfolded --prefix P_nigrofasciata -f --ploidy 2 -v
 ./easySFS.py -i populations.snps.vcf -p P_nigrofasciata_populationmap.txt -a --proj 8,8 -o P_nigrofasciata_sfsunfolded --prefix P_nigrofasciata -f --unfolded --ploidy 2 -v
+
+##project down to 3 diploids
+cd $basedir/L_zonistius/
+pwd
+./easySFS.py -i populations.snps.vcf -p L_zonistius_populationmap.txt  -a --proj 6,6 -o L_zonistius_sfsfolded_proj3 --prefix L_zonistius -f --ploidy 2 -v
+./easySFS.py -i populations.snps.vcf -p L_zonistius_populationmap.txt  -a --proj 6,6 -o L_zonistius_sfsunfolded_proj3 --prefix L_zonistius -f --unfolded --ploidy 2 -v
+cd $basedir/N_lutipinnis/
+pwd
+./easySFS.py -i populations.snps.vcf -p N_lutipinnis_populationmap.txt -a --proj 6,6 -o N_lutipinnis_sfsfolded_proj3 --prefix N_lutipinnis -f --ploidy 2 -v
+./easySFS.py -i populations.snps.vcf -p N_lutipinnis_populationmap.txt -a --proj 6,6 -o N_lutipinnis_sfsunfolded_proj3 --prefix N_lutipinnis -f --unfolded --ploidy 2 -v
+cd $basedir/N_leptocephalus/
+pwd
+./easySFS.py -i populations.snps.vcf -p N_leptocephalus_populationmap.txt -a --proj 6,6 -o N_leptocephalus_sfsfolded_proj3 --prefix N_leptocephalus -f --ploidy 2 -v
+./easySFS.py -i populations.snps.vcf -p N_leptocephalus_populationmap.txt -a --proj 6,6 -o N_leptocephalus_sfsunfolded_proj3 --prefix N_leptocephalus -f --unfolded --ploidy 2 -v
+cd $basedir/P_nigrofasciata
+pwd
+./easySFS.py -i populations.snps.vcf -p P_nigrofasciata_populationmap.txt -a --proj 6,6 -o P_nigrofasciata_sfsfolded_proj3 --prefix P_nigrofasciata -f --ploidy 2 -v
+./easySFS.py -i populations.snps.vcf -p P_nigrofasciata_populationmap.txt -a --proj 6,6 -o P_nigrofasciata_sfsunfoldedproj3 --prefix P_nigrofasciata -f --unfolded --ploidy 2 -v
