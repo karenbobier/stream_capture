@@ -19,5 +19,5 @@ abcresults=order(abcresults)[1:((nsims*tol)+1)]
 }
 
 #Your resulting object "abcresults" then is a list of indices
-# corresponding to the accepted simulations
-# to get a posterior distribution, you could enter "param[abcresults]"
+#corresponding to the accepted simulations
+#to get a posterior distribution, you could enter "param[abcresults]"
