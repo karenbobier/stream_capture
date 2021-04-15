@@ -39,3 +39,68 @@ mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/filte
 populations -t 12 -P /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/ -M /scratch/keb27269/stream_cap/$i/$i\_populationmap.txt -O /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/filter_snp -r 0.8 -p 2 --min_maf 0.05 --fasta_loci --fasta_samples --fasta_samples_raw --vcf --fstats --genepop --vcf_haplotypes --phylip --phylip_var --structure --treemix
 
 done
+
+
+set -ueo pipefail
+SPECIES="P_nigrofasciata
+"
+for i in $SPECIES
+do
+#mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_r4
+populations -t 12 -P /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/ -M /scratch/keb27269/stream_cap/$i/$i\_populationmap.txt -O /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_r4 -r 0.4 -p 2 --fasta_loci --fasta_samples --fasta_samples_raw --vcf --fstats --genepop --vcf_haplotypes --phylip --phylip_var --structure --treemix
+done
+
+set -ueo pipefail
+SPECIES="L_zonistius
+"
+for i in $SPECIES
+do
+mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_r4
+populations -t 12 -P /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/ -M /scratch/keb27269/stream_cap/$i/$i\_populationmap.txt -O /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_r4 -r 0.4 -p 2 --fasta_loci --fasta_samples --fasta_samples_raw --vcf --fstats --genepop --vcf_haplotypes --phylip --phylip_var --structure --treemix
+done
+
+set -ueo pipefail
+SPECIES="N_leptocephalus
+"
+for i in $SPECIES
+do
+#mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_r4
+populations -t 12 -P /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/ -M /scratch/keb27269/stream_cap/$i/$i\_populationmap.txt -O /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_r4 -r 0.4 -p 2 --fasta_loci --fasta_samples --fasta_samples_raw --vcf --fstats --genepop --vcf_haplotypes --phylip --phylip_var --structure --treemix
+done
+
+#try running for percina without fiters to see if there is a difference in number of fixed differences
+set -ueo pipefail
+SPECIES="P_nigrofasciata
+"
+for i in $SPECIES
+do
+mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_no_filter
+populations -t 12 -P /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/ -M /scratch/keb27269/stream_cap/$i/$i\_populationmap.txt -O /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_no_filter  --fasta_loci --fasta_samples --fasta_samples_raw --vcf --fstats --genepop --vcf_haplotypes --phylip --phylip_var --structure --treemix
+done
+
+set -ueo pipefail
+SPECIES="L_zonistius
+"
+for i in $SPECIES
+do
+mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_no_filter
+populations -t 12 -P /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/ -M /scratch/keb27269/stream_cap/$i/$i\_populationmap.txt -O /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_no_filter  --fasta_loci --fasta_samples --fasta_samples_raw --vcf --fstats --genepop --vcf_haplotypes --phylip --phylip_var --structure --treemix
+done
+
+set -ueo pipefail
+SPECIES="N_leptocephalus
+"
+for i in $SPECIES
+do
+mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_no_filter
+populations -t 12 -P /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/ -M /scratch/keb27269/stream_cap/$i/$i\_populationmap.txt -O /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_no_filter  --fasta_loci --fasta_samples --fasta_samples_raw --vcf --fstats --genepop --vcf_haplotypes --phylip --phylip_var --structure --treemix
+done
+
+set -ueo pipefail
+SPECIES="N_lutipinnis
+"
+for i in $SPECIES
+do
+mkdir /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_no_filter
+populations -t 12 -P /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/ -M /scratch/keb27269/stream_cap/$i/$i\_populationmap.txt -O /scratch/keb27269/stream_cap/$i/denovo_output/denovo_n_4_catalog_new/multiple_snp_no_filter  --fasta_loci --fasta_samples --fasta_samples_raw --vcf --fstats --genepop --vcf_haplotypes --phylip --phylip_var --structure --treemix
+done
